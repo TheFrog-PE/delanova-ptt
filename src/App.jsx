@@ -81,7 +81,7 @@ const SLIDES = [
     id: 4,
     type: 'imagen-sola',
     title: 'Lanzamiento de Proyecto',
-    imageSrc: '/lanzamiento-proyecto.svg',
+    imageSrc: './lanzamiento-proyecto.svg',
     imageLabel: 'Lanzamiento de Proyecto',
     imageIcon: '🚀'
   },
@@ -96,13 +96,13 @@ const SLIDES = [
       '🚗 Zona de alta proyección y expansión urbana.'
     ],
     mapLabel: 'Mapa de Ubicación (Línea roja indicando el trayecto a 4 minutos)',
-    imageSrc: '/mapa-ubicacion_1.svg',
+    imageSrc: './mapa-ubicacion_1.svg',
   },
   {
     id: 6,
     type: 'imagen-sola',
     title: 'Brochure - Vista Exterior',
-    imageSrc: '/Triptico_1.svg',
+    imageSrc: './Triptico_1.svg',
     imageLabel: 'Tríptico - Vista Exterior',
     imageIcon: '📄'
   },
@@ -110,7 +110,7 @@ const SLIDES = [
     id: 7,
     type: 'imagen-sola',
     title: 'Brochure - Vista Interior',
-    imageSrc: '/Triptico_2.svg',
+    imageSrc: './Triptico_2.svg',
     imageLabel: 'Tríptico - Vista Interior',
     imageIcon: '📄'
   },
@@ -121,13 +121,13 @@ const SLIDES = [
     subtitle: 'Distribución Urbana',
     mapLabel: 'Plano completo de lotización y manzanas con el mapa de ubicación integrado.',
     description: 'Lotes diseñados de forma óptima para optimizar la luz natural y el tránsito.',
-    pdfSrc: '/plano-lotes-portal.pdf'
+    pdfSrc: './plano-lotes-portal.pdf'
   },
   {
     id: 9,
     type: 'imagen-sola',
     title: 'Espacios Comunes - Parque Interno',
-    imageSrc: '/parque-park.jpeg',
+    imageSrc: './parque-park.jpeg',
     imageLabel: 'Render / Imagen de Parque Interno',
     imageIcon: '🌳'
   },
@@ -144,7 +144,7 @@ const SLIDES = [
     logoText: 'PORTAL PARK',
     description: 'La propuesta exclusiva que redefine el concepto de recreación en la zona.',
     subText: 'LOGO DE PORTAL PARK EN EL CENTRO',
-    imageSrc: '/portal-park.png',
+    imageSrc: './portal-park.png',
   },
   {
     id: 12,
@@ -162,7 +162,7 @@ const SLIDES = [
     description: 'Adquiere tu lote de forma sencilla con facilidades de pago y respaldo legal absoluto.',
     imageLabel: 'Esquema de Pasos de Compra (Separación, Contrato, Entrega)',
     imageIcon: '🔑',
-    imageSrc: '/Foto-delanova-1.png'
+    imageSrc: './Foto-delanova-1.png'
   },
   {
     id: 14,
@@ -214,8 +214,8 @@ const SLIDES = [
     subtitle: 'POR VENTAS',
     lastTitle: 'PERSONALES',
     description: '¡Sé uno de los asesores ganadores! Conoce los increíbles premios que tenemos preparados para reconocer tu esfuerzo y dedicación.',
-    imageSrc: '/collage-bonos.png',
-    tapaSrc: '/regalo-tapa.svg'
+    imageSrc: './collage-bonos.png',
+    tapaSrc: './regalo-tapa.svg'
   },
   {
     id: 22,
@@ -226,8 +226,8 @@ const SLIDES = [
     bono1Text: 'Samsung Galaxy A56 o Laptop ASUS VivoBook GO E410KA. Herramientas perfectas para potenciar tus cierres.',
     bono2Title: 'Bono 2:',
     bono2Text: 'Laptop MacBook Air 13 M1. Rendimiento superior y elegancia para los asesores más destacados.',
-    imageTapa: '/regalo-tapa.svg',
-    imageMain: '/tecnologia-premios.png'
+    imageTapa: './regalo-tapa.svg',
+    imageMain: './tecnologia-premios.png'
   },
   {
     id: 23,
@@ -236,9 +236,9 @@ const SLIDES = [
     subtitle: 'MOVILIDAD',
     itemTitle: 'Moto Navi',
     itemText: 'Acelera tus ventas y llévate una espectacular motocicleta. Ideal para moverte por la ciudad con total libertad y estilo.',
-    imageBase: '/regalo-base-1.svg',
-    imageTapa: '/regalo-tapa.svg',
-    motoImage: '/navi-moto.png'
+    imageBase: './regalo-base-1.svg',
+    imageTapa: './regalo-tapa.svg',
+    motoImage: './navi-moto.png'
   },
   {
     id: 24,
@@ -249,10 +249,10 @@ const SLIDES = [
     subText: 'Por 5 ventas en 1 mes',
     badgeText: '1 viaje ida y vuelta',
     dateText: '01 - 05 SEPTIEMBRE',
-    imageBase: '/regalo-base-1.svg',
-    imageTapa: '/regalo-tapa.svg',
-    confeti: '/confeti-acompanamiento-1.png',
-    machuPicchu: '/machu-pichu.png'
+    imageBase: './regalo-base-1.svg',
+    imageTapa: './regalo-tapa.svg',
+    confeti: './confeti-acompanamiento-1.png',
+    machuPicchu: './machu-pichu.png'
   },
   {
     id: 18,
@@ -281,7 +281,7 @@ const SLIDES = [
     id: 19,
     type: 'imagen-sola',
     title: 'Visualización del Proyecto',
-    imageSrc: '/motivador-imagen.jpg',
+    imageSrc: './motivador-imagen.jpg',
     imageLabel: 'Galería Fotográfica del Proyecto / Render Destacado',
     imageIcon: '🖼️'
   },
@@ -295,14 +295,14 @@ const SLIDES = [
         title: 'Detalle de Cortesía',
         desc: 'Vino con moños para celebrar el lanzamiento.',
         icon: 'wine',
-        imageSrc: '/bebida-vino.png'
+        imageSrc: './bebida-vino.png'
       },
       {
         side: 'Derecha',
         title: 'Pack Especial',
         desc: 'Pack de Mikes con hermosos moños y escarcha.',
         icon: 'gift',
-        imageSrc: '/bebida-1.png'
+        imageSrc: './bebida-1.png'
       }
     ]
   },
@@ -315,7 +315,7 @@ const SLIDES = [
     logoText: 'Q&A',
     logoSub: 'Preguntas y Respuestas',
     imageLabel: 'Representación de Persona Dubitativa / Consultas',
-    imageSrc: '/pregunta-duda.jpg'
+    imageSrc: './pregunta-duda.jpg'
   }
 ];
 
@@ -390,7 +390,7 @@ function App() {
           <div className="slide-layout-center">
             {slide.id === 1 ? (
               <div className="logo-image-container">
-                <img src="/logo-delanova.svg" alt="Delanova Grupo Inmobiliario" className="delanova-logo-large" />
+                <img src="./logo-delanova.svg" alt="Delanova Grupo Inmobiliario" className="delanova-logo-large" />
               </div>
             ) : (
               <div className="logo-badge-placeholder">
@@ -419,7 +419,7 @@ function App() {
         {slide.type === 'quienes-somos' && (
           <div className="slide-layout-quienes-somos">
             <div className="epic-logo-wrapper">
-              <img src="/logo-delanova.svg" alt="Delanova Logo" className="epic-animated-logo" />
+              <img src="./logo-delanova.svg" alt="Delanova Logo" className="epic-animated-logo" />
               <div className="epic-glow-ring"></div>
               <div className="epic-light-sweep"></div>
             </div>
@@ -600,11 +600,11 @@ function App() {
             <div className="col-media">
               <div className="video-player-wrapper">
                 <video 
-                  src="/video-ptt.mp4" 
+                  src="./video-ptt.mp4" 
                   controls 
                   preload="metadata"
                   className="real-video-player"
-                  poster="/image2_1_28770.jpeg"
+                  poster="./image2_1_28770.jpeg"
                 >
                   Tu navegador no soporta el formato de video.
                 </video>
@@ -712,11 +712,11 @@ function App() {
             
             <div className="col-media tech-media-col">
               {/* Main Tech Bundle Image */}
-              <img src={slide.imageMain || "/tecnologia-premios.png"} alt="Premios Tecnológicos" className="tech-premios-main-img" />
+              <img src={slide.imageMain || "./tecnologia-premios.png"} alt="Premios Tecnológicos" className="tech-premios-main-img" />
               
               {/* Box Lid */}
               <div className="floating-gift-lid-container-right">
-                <img src={slide.imageTapa || "/regalo-tapa.svg"} alt="Tapa de regalo" className="floating-gift-lid-img-right" />
+                <img src={slide.imageTapa || "./regalo-tapa.svg"} alt="Tapa de regalo" className="floating-gift-lid-img-right" />
               </div>
             </div>
           </div>
@@ -745,7 +745,7 @@ function App() {
             <div className="col-media movilidad-media-col">
               {/* Box Lid */}
               <div className="floating-gift-lid-container-right">
-                <img src={slide.imageTapa || "/regalo-tapa.svg"} alt="Tapa de regalo" className="floating-gift-lid-img-right" />
+                <img src={slide.imageTapa || "./regalo-tapa.svg"} alt="Tapa de regalo" className="floating-gift-lid-img-right" />
               </div>
               
               {/* Moto popping out */}
