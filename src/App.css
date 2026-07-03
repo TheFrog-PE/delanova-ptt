@@ -1878,6 +1878,154 @@ body {
   animation-delay: 0.5s;
 }
 
+/* Slide Bono 4: Los Grandes Premios Layout */
+.slide-layout-grandes-premios {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 50px;
+  align-items: center;
+  width: 100%;
+}
+
+.grandes-premios-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grandes-premios-title {
+  font-family: var(--font-title);
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+
+.grandes-premios-text-white {
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.grandes-premios-badge-red {
+  color: #ffffff;
+  background-color: #e3000f;
+  border-radius: 12px;
+  padding: 4px 20px;
+  margin: 6px 0;
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: inherit;
+  letter-spacing: inherit;
+  box-shadow: 0 4px 15px rgba(227, 0, 15, 0.3);
+}
+
+.grandes-premios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+}
+
+.grandes-premios-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 18px 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.grandes-premios-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 16px 40px rgba(59, 130, 246, 0.15);
+}
+
+.grandes-premios-icon-wrapper {
+  margin-right: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.grandes-premios-item:hover .grandes-premios-icon-wrapper {
+  background: rgba(59, 130, 246, 0.2);
+  transform: scale(1.05);
+}
+
+.grandes-premios-icon {
+  width: 32px;
+  height: 32px;
+  stroke: var(--color-primary);
+  stroke-width: 1.5;
+  transition: all 0.3s ease;
+}
+
+.grandes-premios-item:hover .grandes-premios-icon {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 6px var(--color-primary));
+}
+
+.grandes-premios-details h4 {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.grandes-premios-details p {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+/* Right media column */
+.grandes-premios-media-col {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grandes-premios-main-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+  z-index: 5;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+  animation: float-base 6s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .slide-layout-grandes-premios {
+    grid-template-columns: 1fr;
+  }
+  .grandes-premios-media-col {
+    min-height: 300px;
+  }
+  .grandes-premios-title {
+    font-size: 2.8rem;
+  }
+}
+
 /* Slide 23: Bono Movilidad Layout */
 .slide-layout-movilidad {
   display: grid;

@@ -29,7 +29,9 @@ import {
   Image as ImageIcon,
   BarChart3,
   BookOpen,
-  Ruler
+  Ruler,
+  Send,
+  Plane
 } from 'lucide-react';
 import './App.css';
 
@@ -63,6 +65,8 @@ const renderIcon = (name, className = "icon-linear") => {
     case 'bar-chart': return <BarChart3 className={className} />;
     case 'book': return <BookOpen className={className} />;
     case 'ruler': return <Ruler className={className} />;
+    case 'send': return <Send className={className} />;
+    case 'plane': return <Plane className={className} />;
     default: return null;
   }
 };
@@ -258,6 +262,27 @@ const SLIDES = [
     imageBase: './regalo-base-1.svg',
     imageTapa: './regalo-tapa.svg',
     motoImage: './navi-moto.png'
+  },
+  {
+    id: 25,
+    type: 'bono-grandes-premios',
+    title: 'BONO 4:',
+    subtitle: 'LOS GRANDES',
+    lastTitle: 'PREMIOS',
+    items: [
+      {
+        icon: 'car',
+        title: '25% de Inicial',
+        text: 'Camioneta <strong>Changan New CS15 Confort</strong>. ¡Empieza a manejar el auto de tus sueños gracias a tus grandes resultados!'
+      },
+      {
+        icon: 'plane',
+        title: 'Viaje a Cartagena',
+        text: 'Viaje doble (5 días y 4 noches) del 01 al 06 de Noviembre. Disfruta de las playas y la ciudad amurallada en Colombia.'
+      }
+    ],
+    imageMain: './bono4-premios.png',
+    imageTapa: './regalo-tapa.svg'
   },
   {
     id: 24,
@@ -778,6 +803,44 @@ function App() {
               
               {/* Moto popping out */}
               <img src={slide.motoImage} alt="Moto Navi" className="pop-moto-item" />
+            </div>
+          </div>
+        )}
+
+        {/* Bono 4: Los Grandes Premios Slide */}
+        {slide.type === 'bono-grandes-premios' && (
+          <div className="slide-layout-grandes-premios">
+            {/* Left: Text column */}
+            <div className="col-info grandes-premios-text-col">
+              <h1 className="grandes-premios-title">
+                <span className="grandes-premios-text-white">{slide.title}</span>
+                <span className="grandes-premios-badge-red">{slide.subtitle}</span>
+                <span className="grandes-premios-text-white">{slide.lastTitle}</span>
+              </h1>
+
+              <div className="grandes-premios-list">
+                {slide.items && slide.items.map((item, i) => (
+                  <div className="grandes-premios-item" key={i}>
+                    <div className="grandes-premios-icon-wrapper">
+                      {renderIcon(item.icon, 'grandes-premios-icon')}
+                    </div>
+                    <div className="grandes-premios-details">
+                      <h4>{item.title}</h4>
+                      <p dangerouslySetInnerHTML={{ __html: item.text }}></p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Image column */}
+            <div className="col-media grandes-premios-media-col">
+              {/* Floating Gift Lid */}
+              <div className="floating-gift-lid-container-right">
+                <img src={slide.imageTapa || './regalo-tapa.svg'} alt="Tapa de regalo" className="floating-gift-lid-img-right" />
+              </div>
+              {/* Main image: camioneta + avion + confetti */}
+              <img src={slide.imageMain} alt="Bono 4 Grandes Premios" className="grandes-premios-main-img" />
             </div>
           </div>
         )}
