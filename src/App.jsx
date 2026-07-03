@@ -20,7 +20,16 @@ import {
   Rocket,
   Zap,
   Maximize2,
-  X
+  X,
+  MessageCircle,
+  Map,
+  Car,
+  Info,
+  CheckCircle2,
+  Image as ImageIcon,
+  BarChart3,
+  BookOpen,
+  Ruler
 } from 'lucide-react';
 import './App.css';
 
@@ -45,9 +54,19 @@ const renderIcon = (name, className = "icon-linear") => {
     case 'calendar': return <Calendar className={className} />;
     case 'rocket': return <Rocket className={className} />;
     case 'zap': return <Zap className={className} />;
+    case 'message-circle': return <MessageCircle className={className} />;
+    case 'map': return <Map className={className} />;
+    case 'car': return <Car className={className} />;
+    case 'info': return <Info className={className} />;
+    case 'check': return <CheckCircle2 className={className} />;
+    case 'image': return <ImageIcon className={className} />;
+    case 'bar-chart': return <BarChart3 className={className} />;
+    case 'book': return <BookOpen className={className} />;
+    case 'ruler': return <Ruler className={className} />;
     default: return null;
   }
 };
+
 
 const SLIDES = [
   {
@@ -83,7 +102,7 @@ const SLIDES = [
     title: 'Lanzamiento de Proyecto',
     imageSrc: './lanzamiento-proyecto.svg',
     imageLabel: 'Lanzamiento de Proyecto',
-    imageIcon: '🚀'
+    imageIcon: 'rocket'
   },
   {
     id: 5,
@@ -91,9 +110,9 @@ const SLIDES = [
     title: 'Conociendo Portal del Valle',
     subtitle: 'Ubicación Estratégica',
     details: [
-      '📍 A tan solo 4 minutos de la vía principal.',
-      '🗺️ Accesibilidad garantizada y conectividad fluida.',
-      '🚗 Zona de alta proyección y expansión urbana.'
+      { icon: 'map-pin', text: 'A tan solo 4 minutos de la vía principal.' },
+      { icon: 'map', text: 'Accesibilidad garantizada y conectividad fluida.' },
+      { icon: 'car', text: 'Zona de alta proyección y expansión urbana.' }
     ],
     mapLabel: 'Mapa de Ubicación (Línea roja indicando el trayecto a 4 minutos)',
     imageSrc: './mapa-ubicacion_1.svg',
@@ -104,7 +123,7 @@ const SLIDES = [
     title: 'Brochure - Vista Exterior',
     imageSrc: './Triptico_1.svg',
     imageLabel: 'Tríptico - Vista Exterior',
-    imageIcon: '📄'
+    imageIcon: 'book'
   },
   {
     id: 7,
@@ -112,7 +131,7 @@ const SLIDES = [
     title: 'Brochure - Vista Interior',
     imageSrc: './Triptico_2.svg',
     imageLabel: 'Tríptico - Vista Interior',
-    imageIcon: '📄'
+    imageIcon: 'book'
   },
   {
     id: 8,
@@ -129,7 +148,7 @@ const SLIDES = [
     title: 'Espacios Comunes - Parque Interno',
     imageSrc: './parque-park.jpeg',
     imageLabel: 'Render / Imagen de Parque Interno',
-    imageIcon: '🌳'
+    imageIcon: 'image'
   },
   {
     id: 10,
@@ -161,7 +180,7 @@ const SLIDES = [
     subtitle: '¿Cómo puedo ser parte hoy de Portal del Valle?',
     description: 'Adquiere tu lote de forma sencilla con facilidades de pago y respaldo legal absoluto.',
     imageLabel: 'Esquema de Pasos de Compra (Separación, Contrato, Entrega)',
-    imageIcon: '🔑',
+    imageIcon: 'file',
     imageSrc: './Foto-delanova-1.png'
   },
   {
@@ -257,7 +276,7 @@ const SLIDES = [
   {
     id: 18,
     type: 'accion-rapida',
-    title: '⚡ Premios por Acción Rápida ⚡',
+    title: 'Premios por Acción Rápida',
     subtitle: '¡Solo por el día de hoy!',
     items: [
       {
@@ -283,7 +302,7 @@ const SLIDES = [
     title: 'Visualización del Proyecto',
     imageSrc: './motivador-imagen.jpg',
     imageLabel: 'Galería Fotográfica del Proyecto / Render Destacado',
-    imageIcon: '🖼️'
+    imageIcon: 'image'
   },
   {
     id: 20,
@@ -308,14 +327,17 @@ const SLIDES = [
   },
   {
     id: 21,
-    type: 'portada',
+    type: 'cierre-qa',
     title: '¡Muchas Gracias!',
     subtitle: 'Sesión de Preguntas y Respuestas',
-    description: 'Estamos listos para resolver todas tus dudas sobre el proyecto Portal del Valle.',
-    logoText: 'Q&A',
-    logoSub: 'Preguntas y Respuestas',
-    imageLabel: 'Representación de Persona Dubitativa / Consultas',
-    imageSrc: './pregunta-duda.jpg'
+    description: 'Estamos listos para resolver todas tus dudas sobre el proyecto Portal del Valle. Nuestro equipo de asesores, comercial y legal está a tu disposición para concretar tu inversión.',
+    badge: 'Q&A · CONSULTAS Y ASESORÍA',
+    imageSrc: './pregunta-duda.jpg',
+    features: [
+      { icon: 'message-circle', title: 'Asesoría Personalizada', desc: 'Respuesta inmediata a todas tus consultas y cotizaciones.' },
+      { icon: 'map-pin', title: 'Visita al Proyecto', desc: 'Te guiamos en un recorrido presencial por Portal del Valle.' },
+      { icon: 'file', title: 'Documentación Lista', desc: 'Planos, títulos e información legal a tu disposición.' }
+    ]
   }
 ];
 
@@ -408,7 +430,7 @@ function App() {
               </div>
             ) : slide.imageLabel ? (
               <div className="grey-placeholder-image mt-8">
-                <span className="emoji-large">❓</span>
+                <div className="placeholder-icon">{renderIcon('help', 'icon-linear-large')}</div>
                 <p>{slide.imageLabel}</p>
               </div>
             ) : null}
@@ -449,7 +471,7 @@ function App() {
         {/* Simple Text Slide */}
         {slide.type === 'texto-simple' && (
           <div className="slide-layout-text">
-            <div className="slide-icon-header">{slide.icon}</div>
+            <div className="slide-icon-header">{renderIcon(slide.icon || 'file', 'icon-linear-large')}</div>
             <h2 className="slide-title-standard">{slide.title}</h2>
             <div className="text-card-content">
               <p className="paragraph-large">{slide.content}</p>
@@ -472,7 +494,7 @@ function App() {
                 </div>
               ) : (
                 <div className="grey-placeholder-image">
-                  <span className="emoji-large">{slide.imageIcon || '🖼️'}</span>
+                  <div className="placeholder-icon">{renderIcon(slide.imageIcon || 'image', 'icon-linear-large')}</div>
                   <p className="placeholder-text">{slide.imageLabel}</p>
                 </div>
               )}
@@ -490,7 +512,12 @@ function App() {
               <h3 className="slide-subtitle-sub">{slide.subtitle}</h3>
               <ul className="bullets-list">
                 {slide.details.map((detail, idx) => (
-                  <li key={idx} className="bullet-item">{detail}</li>
+                  <li key={idx} className="bullet-item" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <span style={{ display: 'flex', alignItems: 'center' }}>
+                      {renderIcon(typeof detail === 'object' ? detail.icon : 'check', "icon-linear-small")}
+                    </span>
+                    <span>{typeof detail === 'object' ? detail.text : detail}</span>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -501,7 +528,7 @@ function App() {
                 </div>
               ) : (
                 <div className="grey-placeholder-image map-style">
-                  <span className="emoji-large">🗺️</span>
+                  <div className="placeholder-icon">{renderIcon('map', 'icon-linear-large')}</div>
                   <p className="placeholder-text">{slide.mapLabel}</p>
                   <div className="map-road-effect"></div>
                 </div>
@@ -528,7 +555,7 @@ function App() {
                   <div className="triptico-fold"></div>
                   <div className="triptico-fold"></div>
                   <div className="triptico-fold"></div>
-                  <span className="emoji-large">📖</span>
+                  <div className="placeholder-icon">{renderIcon('book', 'icon-linear-large')}</div>
                   <p className="placeholder-text">{slide.mockLabel}</p>
                 </div>
               )}
@@ -549,7 +576,7 @@ function App() {
               <div className="slide-layout-fullscreen-media">
                 <h2 className="slide-title-standard text-center mb-4">{slide.title}</h2>
                 <div className="grey-placeholder-image fullscreen-style">
-                  <span className="emoji-large">📐</span>
+                  <div className="placeholder-icon">{renderIcon('ruler', 'icon-linear-large')}</div>
                   <p className="placeholder-text">{slide.mapLabel}</p>
                 </div>
               </div>
@@ -593,8 +620,9 @@ function App() {
               <h2 className="slide-title-standard">{slide.title}</h2>
               <h3 className="slide-subtitle-sub">{slide.subtitle}</h3>
               <p className="slide-desc-left">{slide.description}</p>
-              <div className="video-tip">
-                💡 Puedes dar doble clic o usar el botón de las opciones del video para verlo en pantalla completa.
+              <div className="video-tip" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                {renderIcon('info', 'icon-linear-small')}
+                <span>Puedes dar doble clic o usar el botón de las opciones del video para verlo en pantalla completa.</span>
               </div>
             </div>
             <div className="col-media">
@@ -809,7 +837,7 @@ function App() {
                 <div className="table-row-mock"></div>
                 <div className="table-row-mock"></div>
                 <div className="table-row-mock"></div>
-                <span className="emoji-large">📊</span>
+                <div className="placeholder-icon">{renderIcon('bar-chart', 'icon-linear-large')}</div>
                 <p className="placeholder-text">{slide.placeholderLabel}</p>
               </div>
             </div>
@@ -844,14 +872,10 @@ function App() {
         {slide.type === 'imagen-sola' && (
           <div className={`slide-layout-fullscreen-cover ${(slide.id === 6 || slide.id === 7) ? 'bg-white-cover' : 'bg-clean-cover'}`}>
             {slide.imageSrc ? (
-              <div 
-                className="fullscreen-cover-interactive" 
-                onClick={() => setMaximizedImage(slide.imageSrc)}
-                title="Clic para maximizar y ver en tamaño completo"
-              >
-                <img src={slide.imageSrc} alt="Motivador" className={`fullscreen-cover-img ${slide.imageSrc && slide.imageSrc.endsWith('.svg') ? ((slide.id === 6 || slide.id === 7) ? 'contain-style-white' : 'contain-style-clean') : ''}`} />
+              <div className="fullscreen-cover-interactive" onClick={() => setMaximizedImage(slide.imageSrc)} title="Clic para ver en tamaño completo">
+                <img src={slide.imageSrc} alt={slide.title} className={`fullscreen-cover-img ${slide.imageSrc && slide.imageSrc.endsWith('.svg') ? ((slide.id === 6 || slide.id === 7) ? 'contain-style-white' : 'contain-style-clean') : ''}`} />
                 <div className="maximize-prompt-badge">
-                  <Maximize2 size={20} className="maximize-icon" />
+                  <div className="maximize-icon">{renderIcon('maximize', 'icon-linear-small')}</div>
                   <span>Ver en Tamaño Completo</span>
                 </div>
               </div>
@@ -859,7 +883,7 @@ function App() {
               <div className="slide-layout-fullscreen-media">
                 <h2 className="slide-title-standard text-center mb-4">{slide.title}</h2>
                 <div className="grey-placeholder-image fullscreen-style">
-                  <span className="emoji-large">{slide.imageIcon}</span>
+                  <div className="placeholder-icon">{renderIcon(slide.imageIcon, 'icon-linear-large')}</div>
                   <p className="placeholder-text">{slide.imageLabel}</p>
                 </div>
               </div>
@@ -892,7 +916,63 @@ function App() {
           </div>
         )}
 
+        {/* Cierre / Q&A Premium Slide */}
+        {slide.type === 'cierre-qa' && (
+          <div className="cierre-qa-container">
+            <div className="cierre-qa-grid">
+              
+              {/* Left Column: Title, Subtitle, Description & Interactive Pills */}
+              <div className="cierre-qa-content">
+                <div className="cierre-badge-wrapper">
+                  <span className="cierre-badge">{slide.badge}</span>
+                </div>
+                <h1 className="cierre-title animate-title">{slide.title}</h1>
+                <h2 className="cierre-subtitle animate-subtitle">{slide.subtitle}</h2>
+                <div className="cierre-divider"></div>
+                <p className="cierre-desc">{slide.description}</p>
+                
+                {/* Contact / Value Badges */}
+                {slide.features && (
+                  <div className="cierre-features-list">
+                    {slide.features.map((feat, idx) => (
+                      <div key={idx} className="cierre-feature-item">
+                        <span className="cierre-feat-icon">{renderIcon(feat.icon, "icon-linear")}</span>
+                        <div className="cierre-feat-text">
+                          <strong className="cierre-feat-title">{feat.title}</strong>
+                          <span className="cierre-feat-desc">{feat.desc}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Right Column: Premium Showcase Image Card */}
+              <div className="cierre-qa-visual">
+                <div className="cierre-image-frame">
+                  <div className="cierre-frame-glow"></div>
+                  <img 
+                    src={slide.imageSrc} 
+                    alt="Preguntas y Dudas" 
+                    className="cierre-main-img"
+                    onClick={() => setMaximizedImage(slide.imageSrc)}
+                    style={{ cursor: 'pointer' }}
+                  />
+                  <div className="cierre-image-overlay-badge">
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      {renderIcon('users', 'icon-linear-small style-white')}
+                      <span>Estamos aquí para ayudarte</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        )}
+
       </main>
+
 
       {/* Footer controls */}
       <footer className="presentation-footer">
